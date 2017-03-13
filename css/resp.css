@@ -55,8 +55,8 @@
     /* End Comment */
 
     /* Contact */
-    #form-contact input.text { height: 51px; }
-    #form-contact textarea { height: 150px; }
+    #contact input.text { height: 51px; }
+    #contact textarea { height: 150px; }
     /* End Contact */
 }
 
@@ -89,8 +89,8 @@
     /* End qui */
 
     /* Contact */
-    #form-contact input.text { height: 41px; }
-    #form-contact textarea { height: 130px; }
+    #contact input.text { height: 41px; }
+    #contact textarea { height: 130px; }
     /* End Contact */
 }
 
@@ -109,7 +109,7 @@
     /* End qui */
 
     /* Contact */
-    #form-contact textarea { height: 110px; }
+    #contact textarea { height: 110px; }
     /* End Contact */
 }
 
@@ -276,7 +276,7 @@
     /* End Comment */
 
     /* Contact */
-    #form-contact {
+    #contact {
         padding-left: 15px;
         padding-right: 15px;
         padding-top: 45px;
@@ -290,13 +290,13 @@
         line-height: 54px;
         margin-bottom: 40px;
     }
-    #form-contact .formfield .col,
-    #form-contact .formfield .col.second {
+    #contact .formfield .col,
+    #contact .formfield .col.second {
         margin-bottom: 30px;
         float: none;
         width: auto;
     }
-    #form-contact .formfield .col.second { margin-bottom: 0px; }
+    #contact .formfield .col.second { margin-bottom: 0px; }
     #result {
         clear: both;
         display: block;

@@ -91,9 +91,7 @@ Erwann.Actions = {
                     }
 
                     Erwann.Actions.InitNavigation();
-                    setTimeout(function(){
-                        Erwann.Actions.InitFlubber();
-                    }, 300);
+                   
                 }, 200);
             }
         }, 20);
