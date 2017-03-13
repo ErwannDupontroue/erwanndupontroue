@@ -252,6 +252,12 @@
         width: auto;
     }
     .content-comment,
+    .content-comment .logiciels-comment,
+    .content-comment .logiciels-comment.second {
+        float: none;
+        width: auto;
+    }
+	.content-comment,
     .content-comment .langages-comment,
     .content-comment .langages-comment.second {
         float: none;
