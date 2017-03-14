@@ -24,8 +24,6 @@ var Erwann = {
             Erwann.Actions.InitLoader();
         }
 
-        Erwann.Actions.InitContactForm();
-
         $("#arrow").click(function(e){
             e.preventDefault();
 
@@ -245,46 +243,6 @@ Erwann.Actions = {
             });
         }
     },
-
-    'InitContactForm': function() {
-        $('#visitor').each(function(){
-            var form = $(this);
-            var result = form.find('#result');
-            var nameField = form.find('#your-name');
-            var emailField = form.find('#your-email');
-            var messageField = form.find('#message');
-
-            form.submit(function(e){
-                e.preventDefault();
-
-                if ($.trim(nameField.val()) == '')
-                {
-                    result.text('Please insert your name');
-                }
-                else if (!Erwann.Helpers.IsValidEmail(emailField.val()))
-                {
-                    result.text('Please insert a valid email address');
-                }
-                else if ($.trim(messageField.val()) == '')
-                {
-                    result.text('Please insert your message');
-                }
-                else
-                {
-                    $.ajax({
-                        'url': 'contact.php',
-                        'type': 'POST',
-                        'data': { 'name': nameField.val(), 'email': emailField.val(), 'message': messageField.val() }
-                    });
-
-                    result.text('*Message Sent');
-                    nameField.val('');
-                    emailField.val('');
-                    messageField.val('');
-                }
-            });
-        });
-    }
 };
 
 Erwann.Helpers = {
@@ -292,29 +250,26 @@ Erwann.Helpers = {
         var hash = window.location.hash;
 
         var screen = $(hash.replace('#', '#screen-'));
-        if (window.location.href.indexOf('case.php') == -1)
+        if ( screen.length > 0 )
         {
-            if ( screen.length > 0 )
+            var screenIndex = screen.index();
+            if ( typeof animate != 'undefined' && animate === true )
             {
-                var screenIndex = screen.index();
-                if ( typeof animate != 'undefined' && animate === true )
-                {
-                    Erwann.Objects.Flip.animate( {'left': -1 * $(window).width() * screenIndex }, 500, function(){
-                        Erwann.Objects.Flip.attr('data-attr-page', screenIndex);
-                    } );
-                }
-                else
-                {
-                    Erwann.Objects.Flip.css( {'left': -1 * $(window).width() * screenIndex });
+                Erwann.Objects.Flip.animate( {'left': -1 * $(window).width() * screenIndex }, 500, function(){
                     Erwann.Objects.Flip.attr('data-attr-page', screenIndex);
-                }
-
-                screen.addClass('mob-active').siblings('.f-page').removeClass('mob-active');
+                } );
             }
             else
             {
-                window.location.hash = Erwann.Variables.ScreenHashes[0];
+                Erwann.Objects.Flip.css( {'left': -1 * $(window).width() * screenIndex });
+                Erwann.Objects.Flip.attr('data-attr-page', screenIndex);
             }
+
+            screen.addClass('mob-active').siblings('.f-page').removeClass('mob-active');
+        }
+        else
+        {
+            window.location.hash = Erwann.Variables.ScreenHashes[0];
         }
     },
     'GetScreenIndexByHash': function( hash ) {
@@ -365,8 +320,4 @@ Erwann.Helpers = {
 
         return (w1 - w2);
     },
-    'IsValidEmail': function(email) {
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
-    }
 };

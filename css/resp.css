@@ -54,10 +54,7 @@
     .logiciels-comment li { margin-bottom: 10px; }
     /* End Comment */
 
-    /* Contact */
-    #contact input.text { height: 51px; }
-    #contact textarea { height: 150px; }
-    /* End Contact */
+
 }
 
 @media (max-width: 1050px) and (min-width: 768px), (max-height: 550px) and (min-width: 768px) {
@@ -128,7 +125,7 @@
     #mobile-nav,
     #flip,
     .site-header .nav-trigger,
-    #page.case {
+    #page.projet {
         -webkit-transition: all 200ms ease-in-out;
         -o-transition: all 200ms ease-in-out;
         -moz-transition: all 200ms ease-in-out;
@@ -136,7 +133,7 @@
     }
     .show-sidebar #mobile-nav,
     .show-sidebar #flip,
-    .show-sidebar #page.case {
+    .show-sidebar #page.projet {
         transform: translateX(122px);
         -ms-transform: translateX(122px);
         -webkit-transform: translateX(122px);
@@ -156,7 +153,7 @@
         background-color: #2EA0FF;
         border-color: #2EA0FF;
     }
-    .site-header.green .nav-trigger:hover {
+    .site-header.blue .nav-trigger:hover {
         background-color: #fff;
         border-color: #fff;
     }
@@ -305,46 +302,3 @@
         float: none;
     }
     /* End Contact */
-
-    #phones-area .phones {
-        margin-right: 3%;
-        width: 48.5%;
-    }
-    #phones-area .phones:nth-child(2n) { margin-right: 0px; }
-    #case {
-        margin-top: 50px;
-        margin-left: 15px;
-        margin-right: 15px;
-        width: auto;
-    }
-
-    #content-browser {
-        margin-top: -150px;
-        left: 10px;
-        right: 10px;
-        margin-left: 0px;
-        width: auto;
-    }
-    #content-browser h1 {
-        font-size: 130px;
-        line-height: 130px;
-        margin-bottom: 12px;
-    }
-    #content-browser button,
-    #content-browser a.button {
-        margin-top: 60px;
-        width: 220px;
-    }
-}
-@media (max-width: 499px) {
-    .screenshot,
-    #phones-area { margin-bottom: 30px; }
-    #phones-area .phones,
-    #phones-area .phones:nth-child(2n),
-    #phones-area .phones:nth-child(4n) {
-        float: none;
-        margin: 0px auto 20px;
-        max-width: 250px;
-        width: auto;
-    }
-}
